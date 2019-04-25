@@ -2,9 +2,10 @@ body{
 	margin: 0;
 }
 .main__header{
-	background-color: orange;
+	background-color: orangered;
 	position: sticky;
 	top: 0;
+	opacity: .9;
 }
 
 
