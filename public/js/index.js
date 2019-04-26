@@ -15,44 +15,41 @@ let loaders = document.getElementById("loaders");
 // setTimeout(()=>{
 // 	loaders.remove()
 // }, 1000)
-	btnSend.addEventListener("click", ()=>{
-			 btnSend.classList.toggle("scale");
-		 
-		
-
+	btnSend.addEventListener("mouseenter", ()=>{
+ 
+		// al buscar un programa haga el request
 
 		if(findMedia.value != ""){
-				loaders.classList.add("lds-ellipsis");
+			btnSend.classList.toggle("scale");
+			loaders.classList.add("lds-ellipsis");
+
 		// container.textContent = "actualizando.."
 		// container.innerHTML = ""
+
 		let url = 'http://api.tvmaze.com/singlesearch/shows?q='+ findMedia.value; 
 		var xhr = new XMLHttpRequest();	
+
+		// emptying form input
 		findMedia.value = ""
 
- 	
- 	 
- 		 
+ 	  
 
 	xhr.open("GET", url, true);
+	xhr.send();
 
- 	xhr.send();
 	setTimeout(()=>{
  	
  	loaders.classList.remove("lds-ellipsis");
 
  	}, 500)
  	 
-	// container.textContent = ""
  
-    
 	xhr.addEventListener("load", (e)=>{
 
 		let text = JSON.parse(e.target.responseText)
 		 	 
-		 
-		 
+ 
  			let nameMedia = document.getElementById("item-name");
- 			
  				nameMedia.innerHTML = ""
  				nameMedia.innerHTML = text.name;
 
@@ -86,14 +83,16 @@ let loaders = document.getElementById("loaders");
 
 
  			// console.log(text)
- 			if(text.genres[1] == undefined){
+ 			if( text.genres[1] == undefined ){
  				genres.innerHTML = ""
  				titlePage.innerHTML = text.name;
  				
  			}
  			else{
+
  				titlePage.innerHTML = ""
  				titlePage.innerHTML = text.name + " - " + text.genres[0];
+
  				genres.innerHTML = ""
  				genres.innerHTML += text.genres[0] + " "
  				genres.innerHTML += text.genres[1] + " "
@@ -109,8 +108,11 @@ let loaders = document.getElementById("loaders");
  	
 		
 	}, false);
+		   	 
+
 
 		}
+
 }, false);
 
 let mainHeader = document.getElementById("main__header-js");
