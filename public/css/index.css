@@ -114,4 +114,7 @@ body{
 		opacity: .4;		
 	}
 }
-
+.find-article{
+	display: flex;
+	justify-content: center;align-items: center;
+}
