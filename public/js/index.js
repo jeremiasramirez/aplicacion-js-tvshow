@@ -7,10 +7,12 @@ let findMedia = document.getElementById("find-media");
 let titlePage = document.getElementById("title-page-js");
 
 	btnSend.addEventListener("click", ()=>{
+			 
+
 
 		if(findMedia.value != ""){
-	
-		container.textContent = "actualizando.."
+		btnSend.classList.add("scale");
+		// container.textContent = "actualizando.."
 		// container.innerHTML = ""
 		let url = 'http://api.tvmaze.com/singlesearch/shows?q='+ findMedia.value; 
 		var xhr = new XMLHttpRequest();	
@@ -18,40 +20,73 @@ let titlePage = document.getElementById("title-page-js");
 
 
 	xhr.open("GET", url, true);
-	setTimeout(()=>{
-	xhr.send();
-	container.textContent = ""
-},300)
-
+ 	 
+		xhr.send();
+ 	 
+	// container.textContent = ""
+ 
+    
 	xhr.addEventListener("load", (e)=>{
 
 		let text = JSON.parse(e.target.responseText)
+		 	
+		 	console.log(text)
 		 
-			console.log(text.genres[1])
+ 			let nameMedia = document.getElementById("item-name");
+ 			
+ 				nameMedia.innerHTML = ""
+ 				nameMedia.innerHTML = text.name;
 
-	 		let containerShows = document.createElement("div");
-			let name = document.createElement("h1")
-			let imageTV = document.createElement("img")
-			let description = document.createElement("p")
- 			console.log(text)
+		 	let titleMedia = document.getElementById("title-media-js");
+		 		titleMedia.innerHTML = ""
+		 		titleMedia.textContent = text.name
+
+			let imageMedia = document.getElementById("image-media");
+				imageMedia.src = text.image.medium;
+
+			let language = document.getElementById("item-language");
+				
+				if(text.language != undefined){
+					language.innerHTML = ""
+					language.innerHTML = text.language
+				}
+				else{
+					language.innerHTML = ""
+					language.innerHTML = "english"
+				}
+			
+
+		 	let description = document.getElementById("description-media-js");
+		 		description.innerHTML = text.summary;
+
+
+
+
+		 let genres = document.getElementById("item-genres");
+ 				
+
+
+ 			// console.log(text)
  			if(text.genres[1] == undefined){
- 				titlePage.textContent = text.name;
+ 				genres.innerHTML = ""
+ 				titlePage.innerHTML += text.name;
+ 				
  			}
  			else{
- 				titlePage.textContent = text.name + " - " + text.genres[1];
+ 				titlePage.innerHTML = ""
+ 				titlePage.innerHTML += text.name + " - " + text.genres[0];
+ 				genres.innerHTML = ""
+ 				genres.innerHTML += text.genres[0] + " "
+ 				genres.innerHTML += text.genres[1] + " "
+ 			 
  			}
-			name.textContent = text.name
-		
-			containerShows.appendChild(name)
+ 			let premier = document.getElementById("item-premiered");
+ 				premier.innerHTML = ""
+ 				premier.innerHTML = text.premiered
 
-			imageTV.src = text.image.medium;
-			containerShows.appendChild(imageTV)
-
-			description.innerHTML = text.summary;
+ 			
+ 
 			 
-			containerShows.appendChild(description)
-
-			container.appendChild(containerShows)
 	 		
 		
 	}, false);
