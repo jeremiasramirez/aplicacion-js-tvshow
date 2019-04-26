@@ -2,6 +2,10 @@ body{
 	margin: 0;
 	background-color: #444;
 }
+.responsive-loader{
+	display: flex;
+	justify-content: center;align-items: center;
+}
 .main__header{
 	background-color: orangered;
 	position: sticky;
@@ -111,48 +115,3 @@ body{
 	}
 }
 
-
-
-.find-article{
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	margin: 1.5em;
-	flex-direction: column;
-}
-.find-media{
-	border-radius: 6px;
-	width: 100%;
-	text-align: center;
-	font-size: 15px;
-	font-family: sans-serif;
-	font-weight: 600;
-	padding: .7em;
-	border: 0px solid orangered;
-	background-color: #ddf;
-	color: #222;
-	margin-bottom: .5em;
-}
-.btn-send{
-	width: 200px;
-	border:0;
-	padding: .3em;
-	border-radius: 6px;
-	margin-bottom: 1em;
-	font-family: sans-serif;
-	font-size: 18px;
-	color: white;
-	background-color: red;
-	font-weight: 600;
-	transition: .7s;
-
-}
-.btn-send:hover{
-	background-color: orangered;
-	opacity: .3;
-	transition: .7s;
-}
-.scale{
-	transform: scale(.8);
-	transition: transform 4s;
-}

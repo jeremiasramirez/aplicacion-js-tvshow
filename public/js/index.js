@@ -10,26 +10,37 @@ let container = document.getElementById("container");
 let btnSend = document.getElementById("btn-send-js");
 let findMedia = document.getElementById("find-media");
 let titlePage = document.getElementById("title-page-js");
+let loaders = document.getElementById("lds-roller");
 
-
+// setTimeout(()=>{
+// 	loaders.remove()
+// }, 1000)
 	btnSend.addEventListener("click", ()=>{
 			 btnSend.classList.toggle("scale");
 		 
-			 
+		
 
 
 		if(findMedia.value != ""){
-		
+				 loaders.classList.add("lds-roller");
 		// container.textContent = "actualizando.."
 		// container.innerHTML = ""
 		let url = 'http://api.tvmaze.com/singlesearch/shows?q='+ findMedia.value; 
 		var xhr = new XMLHttpRequest();	
 		findMedia.value = ""
 
+ 	
+ 	 
+ 		 
 
 	xhr.open("GET", url, true);
- 	 
-		xhr.send();
+
+ 	xhr.send();
+	setTimeout(()=>{
+ 	
+ 	loaders.classList.remove("lds-roller");
+
+ 	}, 500)
  	 
 	// container.textContent = ""
  
@@ -77,12 +88,12 @@ let titlePage = document.getElementById("title-page-js");
  			// console.log(text)
  			if(text.genres[1] == undefined){
  				genres.innerHTML = ""
- 				titlePage.innerHTML += text.name;
+ 				titlePage.innerHTML = text.name;
  				
  			}
  			else{
  				titlePage.innerHTML = ""
- 				titlePage.innerHTML += text.name + " - " + text.genres[0];
+ 				titlePage.innerHTML = text.name + " - " + text.genres[0];
  				genres.innerHTML = ""
  				genres.innerHTML += text.genres[0] + " "
  				genres.innerHTML += text.genres[1] + " "
@@ -95,16 +106,10 @@ let titlePage = document.getElementById("title-page-js");
  				let titleDocument = document.getElementById("title-document");
  					titleDocument.innerHTML = ""
  					titleDocument.innerHTML = text.name
-
- 			
- 
-			 
-	 		
+ 	
 		
 	}, false);
 
-
-		
 		}
 }, false);
 
@@ -122,7 +127,5 @@ let scrollingTop = function(scrolling){
 
 }
 scrollingTop(mainHeader);
-
-
 
  
