@@ -13,7 +13,12 @@ body{
 	z-index: 100;
 	opacity: .9;
 	padding: .6em;
-
+	transition: .7s;
+}
+.main__header:hover{
+	cursor: pointer;
+	opacity: .7;
+	transition: .7s;
 }
 .image-media{
 	border-radius: 5px;
@@ -62,7 +67,12 @@ body{
 	text-align: center;
 	background-color: #222;
 	color: #ddd;
-	padding: 2em;
+	padding: 2em;transition: 7s;
+}
+.container:hover{
+	transform: scale(.9);
+	transition: .3s;
+	opacity: .7;
 }
 @media screen and (min-width: 500px){
  
@@ -152,6 +162,7 @@ body{
 .btn-send:hover{
 	background-color: orange;
 	transition: .7s;
+	cursor: pointer;
 }
 .scale{
 	transform: scale(.8);
