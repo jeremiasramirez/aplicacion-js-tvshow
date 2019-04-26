@@ -10,7 +10,7 @@ let container = document.getElementById("container");
 let btnSend = document.getElementById("btn-send-js");
 let findMedia = document.getElementById("find-media");
 let titlePage = document.getElementById("title-page-js");
-let loaders = document.getElementById("lds-roller");
+let loaders = document.getElementById("loaders");
 
 // setTimeout(()=>{
 // 	loaders.remove()
@@ -22,7 +22,7 @@ let loaders = document.getElementById("lds-roller");
 
 
 		if(findMedia.value != ""){
-				 loaders.classList.add("lds-roller");
+				loaders.classList.add("lds-ellipsis");
 		// container.textContent = "actualizando.."
 		// container.innerHTML = ""
 		let url = 'http://api.tvmaze.com/singlesearch/shows?q='+ findMedia.value; 
@@ -38,7 +38,7 @@ let loaders = document.getElementById("lds-roller");
  	xhr.send();
 	setTimeout(()=>{
  	
- 	loaders.classList.remove("lds-roller");
+ 	loaders.classList.remove("lds-ellipsis");
 
  	}, 500)
  	 
