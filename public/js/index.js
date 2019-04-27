@@ -22,6 +22,9 @@ let loaders = e("loaders");
 // setTimeout(()=>{
 // 	loaders.remove()
 // }, 1000)
+ 
+	
+
 	btnSend.addEventListener("mouseenter", ()=>{
  
 		// al buscar un programa haga el request
@@ -29,12 +32,19 @@ let loaders = e("loaders");
 		if(findMedia.value != ""){
 			btnSend.classList.toggle("scale");
 			loaders.classList.add("lds-ellipsis");
-
+		 
+		let url = 'http://api.tvmaze.com/singlesearch/shows?q='+ findMedia.value;
+ 
+		// else if(typeof(findMedia.value) == 'string'){
+			
+		// }
+		 // let url = 'http://api.tvmaze.com/singlesearch/shows?q='+ findMedia.value; 
+		 var xhr = new XMLHttpRequest();	
 		// container.textContent = "actualizando.."
 		// container.innerHTML = ""
-
-		let url = 'http://api.tvmaze.com/singlesearch/shows?q='+ findMedia.value; 
-		var xhr = new XMLHttpRequest();	
+		  
+		
+	
 
 		// emptying form input
 		findMedia.value = ""
@@ -86,9 +96,7 @@ let loaders = e("loaders");
 
 
 		 let genres = document.getElementById("item-genres");
- 				
-
-
+ 	 
  			// console.log(text)
  			if( text.genres[1] == undefined ){
  				genres.innerHTML = ""
