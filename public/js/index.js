@@ -1,4 +1,11 @@
- let formMedia = document.getElementById("form-media");
+function e(elementHtml){
+  let elements = document.getElementById(elementHtml);
+  return elements
+}
+
+  
+ let formMedia = e("form-media");
+ 
 	formMedia.addEventListener("click", (e)=>{
 		e.preventDefault();
 	}, false)
@@ -6,11 +13,11 @@
 
 
 // request to tvmaze.com
-let container = document.getElementById("container");
-let btnSend = document.getElementById("btn-send-js");
-let findMedia = document.getElementById("find-media");
-let titlePage = document.getElementById("title-page-js");
-let loaders = document.getElementById("loaders");
+let container = e("container");
+let btnSend = e("btn-send-js");
+let findMedia = e("find-media");
+let titlePage = e("title-page-js");
+let loaders = e("loaders");
 
 // setTimeout(()=>{
 // 	loaders.remove()
@@ -72,13 +79,13 @@ let loaders = document.getElementById("loaders");
 				}
 			
 
-		 	let description = document.getElementById("description-media-js");
+		 	let description = e("description-media-js");
 		 		description.innerHTML = text.summary;
 
 
 
 
-		 let genres = document.getElementById("item-genres");
+		 let genres = e("item-genres");
  				
 
 
@@ -98,11 +105,11 @@ let loaders = document.getElementById("loaders");
  				genres.innerHTML += text.genres[1] + " "
  			 
  			}
- 			let premier = document.getElementById("item-premiered");
+ 			let premier = e("item-premiered");
  				premier.innerHTML = ""
  				premier.innerHTML = text.premiered
 
- 				let titleDocument = document.getElementById("title-document");
+ 				let titleDocument = e("title-document");
  					titleDocument.innerHTML = ""
  					titleDocument.innerHTML = text.name
  	
@@ -115,7 +122,7 @@ let loaders = document.getElementById("loaders");
 
 }, false);
 
-let mainHeader = document.getElementById("main__header-js");
+let mainHeader = e("main__header-js");
 
 let scrollingTop = function(scrolling){
 
