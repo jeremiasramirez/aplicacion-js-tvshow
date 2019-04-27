@@ -79,13 +79,13 @@ let loaders = e("loaders");
 				}
 			
 
-		 	let description = e("description-media-js");
+		 	let description = document.getElementById("description-media-js");
 		 		description.innerHTML = text.summary;
 
 
 
 
-		 let genres = e("item-genres");
+		 let genres = document.getElementById("item-genres");
  				
 
 
@@ -105,11 +105,11 @@ let loaders = e("loaders");
  				genres.innerHTML += text.genres[1] + " "
  			 
  			}
- 			let premier = e("item-premiered");
+ 			let premier = document.getElementById("item-premiered");
  				premier.innerHTML = ""
  				premier.innerHTML = text.premiered
 
- 				let titleDocument = e("title-document");
+ 				let titleDocument = document.getElementById("title-document");
  					titleDocument.innerHTML = ""
  					titleDocument.innerHTML = text.name
  	
