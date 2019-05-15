@@ -16,6 +16,7 @@ function e(elementHtml){
 let container = e("container");
 let btnSend = e("btn-send-js");
 let findMedia = e("find-media");
+
 let titlePage = e("title-page-js");
 let loaders = e("loaders");
 
@@ -127,6 +128,8 @@ let loaders = e("loaders");
 
 
 		}
+		 
+		 
 
 }, false);
 
