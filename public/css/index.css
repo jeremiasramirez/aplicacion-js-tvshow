@@ -1,8 +1,15 @@
 body{
 	margin: 0;
 	background-color: #444;
-
-	
+}
+body{
+	filter: blur(0);
+	animation: blurs .5s linear;
+}
+@keyframes blurs {
+	to{
+		filter: blur(8px);
+	}
 }
 .responsive-loader{
 	display: flex;
@@ -69,13 +76,12 @@ body{
 	text-align: center;
 	background-color: #222;
 	color: #ddd;
-	padding: 2em;transition: 7s;
+	padding: 2em; 
 }
 .container:hover{
-	transform: scale(.9);
-	transition: .3s;
-	opacity: .7;
+	filter: blur(1px);
 }
+
 @media screen and (min-width: 500px){
  
 	.container-media{

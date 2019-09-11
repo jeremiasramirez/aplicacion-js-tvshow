@@ -26,7 +26,7 @@ let loaders = e("loaders");
  
 	
 
-	btnSend.addEventListener("mouseenter", ()=>{
+	findMedia.addEventListener("keyup", ()=>{
  
 		// al buscar un programa haga el request
 
@@ -44,11 +44,7 @@ let loaders = e("loaders");
 		// container.textContent = "actualizando.."
 		// container.innerHTML = ""
 		  
-		
-	
-
-		// emptying form input
-		findMedia.value = ""
+ 
 
  	  
 
